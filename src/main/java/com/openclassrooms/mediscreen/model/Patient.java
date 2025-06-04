@@ -17,6 +17,16 @@ public class Patient {
     private String address;
     private String phone;
 
+    public Patient(Long id, String givenName, String familyName, LocalDate dateOfBirth, String gender, String address, String phone) {
+        this.id = id;
+        this.givenName = givenName;
+        this.familyName = familyName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.address = address;
+        this.phone = phone;
+    }
+
     // Getters and setters
 
     public Long getId() {
