@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
-@RequestMapping("/api/patients")
+@RequestMapping("/patient")
 public class PatientController {
 
     @Autowired
@@ -19,24 +22,10 @@ public class PatientController {
         return patientRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Patient getPatientById(@PathVariable Long id) {
-        return patientRepository.findById(id).orElse(null);
+    @PostMapping("add")
+    public String addPatient(@RequestBody Patient patient) {
+        return patientRepository.addPatient(patient);
     }
 
-    @PostMapping
-    public Patient createPatient(@RequestBody Patient patient) {
-        return patientRepository.save(patient);
-    }
-
-    @PutMapping("/{id}")
-    public Patient updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
-        patient.setId(id);
-        return patientRepository.save(patient);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deletePatient(@PathVariable Long id) {
-        patientRepository.deleteById(id);
-    }
+    
 }

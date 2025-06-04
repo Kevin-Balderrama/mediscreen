@@ -16,6 +16,7 @@ public class Patient {
     private String gender;
     private String address;
     private String phone;
+    private String medicalNotes;
 
     public Patient(Long id, String givenName, String familyName, LocalDate dateOfBirth, String gender, String address, String phone) {
         this.id = id;
@@ -25,6 +26,7 @@ public class Patient {
         this.gender = gender;
         this.address = address;
         this.phone = phone;
+        this.medicalNotes = "";
     }
 
     // Getters and setters
@@ -83,5 +85,13 @@ public class Patient {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    
+    public String getMedicalNotes() {
+        return medicalNotes;
+    }
+
+    public void setMedicalNotes(String medicalNotes) {
+        this.medicalNotes = medicalNotes;
     }
 }
