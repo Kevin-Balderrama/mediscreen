@@ -5,11 +5,6 @@ import java.time.LocalDate;
 
 @Entity
 public class Patient {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private String givenName;
     private String familyName;
     private LocalDate dateOfBirth;
@@ -18,8 +13,7 @@ public class Patient {
     private String phone;
     private String medicalNotes;
 
-    public Patient(Long id, String givenName, String familyName, LocalDate dateOfBirth, String gender, String address, String phone) {
-        this.id = id;
+    public Patient(String givenName, String familyName, LocalDate dateOfBirth, String gender, String address, String phone) {
         this.givenName = givenName;
         this.familyName = familyName;
         this.dateOfBirth = dateOfBirth;
@@ -30,14 +24,6 @@ public class Patient {
     }
 
     // Getters and setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getGivenName() {
         return givenName;

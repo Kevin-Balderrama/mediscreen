@@ -19,16 +19,24 @@ public class PatientService {
         return patientRepository.findAll();
     }
 
+    public Patient findPatient(Patient patient) {
+        return getAllPatients().stream()
+                .filter(p -> p.getGivenName().equals(patient.getGivenName()) &&
+                             p.getFamilyName().equals(patient.getFamilyName()) &&
+                             p.getDateOfBirth().equals(patient.getDateOfBirth()))
+                .findFirst()
+                .orElse(null);
+    }
+
     public Patient addPatient(Patient patient) {
         return patientRepository.save(patient);
     }
 
-    public Patient updatePatient(Long id, Patient patient) {
-        patient.setId(id);
+    public Patient updatePatient(Patient patient) {
         return patientRepository.save(patient);
     }
 
-    public void deletePatient(Long id) {
-        patientRepository.deleteById(id);
+    public void deletePatient(Patient patient) {
+        patientRepository.deletePatient(patient);
     }
 }

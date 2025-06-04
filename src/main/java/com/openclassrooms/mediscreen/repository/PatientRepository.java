@@ -8,4 +8,6 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     String addPatient(Patient patient);
 
+    void deletePatient(Patient patient);
+
 }
